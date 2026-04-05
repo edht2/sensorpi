@@ -4,6 +4,8 @@ Records and sends sensor data such as bed soil moisture and climate zone humidit
 
 <h2>Setup</h2>
 
+It's recomended to run in a virtual environment!
+
 1. Pull the latest version from github `git pull git@github.com:edht2/sensorpi.git`<br>
 2. Create and enter virtual environment `python3 -m venv .venv && source .venv/bin/activate`
 3. Install requirements `pip install -r requirements.txt`

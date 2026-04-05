@@ -1,4 +1,4 @@
-from app.config import read_frequency, mqtt_topic, climate_zone_name, send_frequency
+from app.config import read_frequency, mqtt_topic, device_name, send_frequency
 from app.tools.log import log
 from time import sleep
 from app.mqtt.mqtt import pub
@@ -9,7 +9,6 @@ class sensorPi:
         self.scd30_sensor = scd30
         # this is a list of Bed objects and the SCD30 sensor object!
         log(
-            device=climate_zone_name,
             outcome=True,
             subject='app',
             topic='setup',

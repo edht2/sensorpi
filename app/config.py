@@ -4,6 +4,8 @@ climate_zone_number = 1
 climate_zone_name = f"sensorPi {climate_zone_number}"
 # the name of the climate zone
 
+device_name = f"sensorpi{climate_zone_number}"
+
 read_frequency = 5
 # how often the sensors are triggered
 

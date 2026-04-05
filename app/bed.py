@@ -33,15 +33,14 @@ class Bed:
             # add the read sensor values to a list from which we can take the median
             # do this to flatten any volatility from the capactitive readings
         except Exception as e:
+            # if the sensor fails to read
             log(
-                device=climate_zone_name,
                 outcome=False,
-                subject="bed",
+                subject=f"bed{self.bed_number}",
                 topic="chirp_sensor_reading", 
                 message="Error while trying to read sensor data",
                 error=e
             )
-            # if the sensor fails to read
             
             self.status = "ER"
             # by setting the status to 'ER', the controller pi now knows to stop using this soil moisture sensor, and instead uses the clock.
@@ -58,6 +57,13 @@ class Bed:
         print(message)
         pub.publish(mqttTopic, message)
         # send the packet to the controller pi
+        
+        log(
+            outcome=True,
+            subject=f"bed{self.bed_number}",
+            topic="publishing", 
+            message="Successfully published bed data"
+        )
 
 
     def identify(self) -> str:

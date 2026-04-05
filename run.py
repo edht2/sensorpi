@@ -17,17 +17,18 @@ if __name__ == "__main__":
     for x in range(len(bed_num)): 
     # loop x times to reflect the number of beds in each climate zone. 
         
-        bed = dict(chirp_sensor_i2c_address = chirpsensor_i2c_address[x], 
-                chirp_sensor_calibration = chirp_sensor_cal[x], 
-                bed_number = bed_num[x], 
-                mqtt_topic = f"bed{bed_num[x]}")
+        bed = dict(
+            chirp_sensor_i2c_address = chirpsensor_i2c_address[x], 
+            chirp_sensor_calibration = chirp_sensor_cal[x], 
+            bed_number = bed_num[x], 
+            mqtt_topic = f"bed{bed_num[x]}"
+        )
         # create a 'bed' dictionary to describe individual beds with attributes from config.py 
         
         beds_dictionary["beds"].append(bed)
         # append each 'bed' dictionary to the 'beds' list in beds_dictionary
 
-
-    beds, scd30 = instantiate_sensors(beds_dictionary, climate_zone_number)
+    beds, scd30 = 1,2#instantiate_sensors(beds_dictionary, climate_zone_number)
     # get the arguments for the beds and scd30)
 
     sensorPi(beds=beds, scd30=scd30)
