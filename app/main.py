@@ -38,6 +38,8 @@ class sensorPi:
 
                 # loop through every bed sending the collected data as you go
                 
+                ticks_since_lasts_send = 0
+
                 self.scd30_sensor.send(f"{mqtt_topic}/SCD30")
                 # send the scd30 sensor data
                 

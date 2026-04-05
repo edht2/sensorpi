@@ -6,10 +6,10 @@ climate_zone_name = f"sensorPi {climate_zone_number}"
 
 device_name = f"sensorpi{climate_zone_number}"
 
-read_frequency = 5
+read_frequency = 2
 # how often the sensors are triggered
 
-send_frequency = 5
+send_frequency = 3
 # how often data is sent to the controller pi (how many readings per send)
 
 mqtt_broker_address ="mqtt.eclipseprojects.io"

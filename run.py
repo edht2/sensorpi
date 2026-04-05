@@ -28,7 +28,7 @@ if __name__ == "__main__":
         beds_dictionary["beds"].append(bed)
         # append each 'bed' dictionary to the 'beds' list in beds_dictionary
 
-    beds, scd30 = 1,2#instantiate_sensors(beds_dictionary, climate_zone_number)
+    beds, scd30 = instantiate_sensors(beds_dictionary, climate_zone_number)
     # get the arguments for the beds and scd30)
 
     sensorPi(beds=beds, scd30=scd30)

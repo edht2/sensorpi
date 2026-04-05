@@ -28,7 +28,7 @@ class SCD30:
 
             if measurements is not None:
                 # if the sensor has acctually worked...  sometimes the sensor just returns 'None'
-
+                
                 self.CO2_readings.append(measurements[0])
                 self.temperature_readings.append(measurements[1])
                 self.RH_readings.append(measurements[2])
@@ -49,6 +49,7 @@ class SCD30:
         return self.read()
 
     def send(self, mqtt_topic):
+       
         median_CO2_reading = utils.median(self.CO2_readings)
         median_temperature_reading = utils.median(self.temperature_readings)
         median_RH_reading = utils.median(self.RH_readings)

@@ -26,9 +26,9 @@ class utils:
         middle_i = (len(numbers) - 1) / 2
         
         if int(middle_i) != middle_i:
-            return utils.mean(numbers[int(middle_i)], numbers[int(middle_i)+1])
+            return utils.mean([numbers[int(middle_i)], numbers[int(middle_i)+1]])
 
-        return numbers[middle_i]
+        return numbers[int(middle_i)]
     
     def mean(numbers:list) -> float:
         """
