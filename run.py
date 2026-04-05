@@ -3,7 +3,7 @@
 from colorama import Style, Fore, Back
 from app.config import climate_zone_name, climate_zone_number, chirpsensor_i2c_address, chirp_sensor_cal, bed_num
 from app.main import sensorPi
-from app.tools.sensors import instantiate_sensors
+from app.sensors.sensors import instantiate_sensors
 
 if __name__ == "__main__":
     print(f"{Back.GREEN}{Fore.WHITE}Initiating {climate_zone_name}...{Style.RESET_ALL}")
