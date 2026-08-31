@@ -22,7 +22,7 @@ mqtt_topic = f"climate_zone_{climate_zone_number}"
 
 if climate_zone_number == 1:
     chirpsensor_i2c_address = [0x10,0x11]
-    chirp_sensor_cal = [[200, 530],[200, 530]]
+    chirp_sensor_cal = [[256, 531],[254, 535]]
     bed_num = [1,2]
     
 elif climate_zone_number == 2:

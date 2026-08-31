@@ -9,6 +9,9 @@ if addr == "": addr = "0x20"
 # Default address of Chirp seensor is 0x20
 # Create an interface with the sensor
 
+# Convert the string input into an actual integer (supports both hex like 0x20 and decimal)
+addr = int(addr, 0)
+
 try:
     chirp = Chirp(bus=1, address=addr)
     chirp.version
