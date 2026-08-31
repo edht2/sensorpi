@@ -1,0 +1,3 @@
+# download the Mosquitto clients to a PC .....sudo apt install mosquitto-clients ...... then type in terminal.....
+mosquitto_sub -d -h broker.hivemq.com -t "climate_zone_2/#" -v
+# this is a better server than eclipse which we started to work with. 

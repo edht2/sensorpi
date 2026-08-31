@@ -12,7 +12,7 @@ read_frequency = 2
 send_frequency = 3
 # how often data is sent to the controller pi (how many readings per send)
 
-mqtt_broker_address ="mqtt.eclipseprojects.io"
+mqtt_broker_address = "broker.hivemq.com"
 # the mqtt broker address is a cruicial part of the system allowing the sensor pi
 # to communicate with the controller pi
 
@@ -28,6 +28,6 @@ if climate_zone_number == 1:
 elif climate_zone_number == 2:
     chirpsensor_i2c_address = [0x30, 0x31, 0x32, 0x33]
     chirp_sensor_cal = [[200, 530], [200, 530], [200, 530], [200, 530]]
-    bed_num = [3, 4, 5, 6]
+    bed_num = [4, 5, 6, 7]
 # i2c chirp sensor addresses, calibration for 0% and 100% moisture, plus bed numbers for each of the climate zones.
 
