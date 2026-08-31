@@ -10,7 +10,7 @@ if addr == "": addr = "0x20"
 # Create an interface with the sensor
 
 try:
-    chirp = Chirp(bus=1, address=addr)
+    chirp = Chirp(bus=1, address=int(addr, 16))
     chirp.version
     
 except PermissionError as pe:
@@ -23,4 +23,4 @@ except IOError as ioe:
 
 
 new_addr = input("Enter new address (eg. 0x10)\n>").strip().lower()
-if input("Confirm new address? (y/n)").strip().lower() == "y": chirp.sensor_address = new_addr
+if input("Confirm new address? (y/n)").strip().lower() == "y": chirp.sensor_address = int(new_addr, 16)

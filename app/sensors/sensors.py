@@ -1,6 +1,11 @@
 from app.sensors.SCD30.scd30 import SCD30 as SCD30sen
 from app.bed import Bed
 
+class fakescd30:
+  def __init__(self): ...
+  def read(self): return [0, 0, 0]
+  def send(self, *args): return None
+
 def instantiate_sensors(state, climate_zone_id):
     beds = [
         Bed(

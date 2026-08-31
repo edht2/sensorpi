@@ -1,4 +1,4 @@
-climate_zone_number = 1
+climate_zone_number = 2
 # the number assigned to the c.z.
 
 climate_zone_name = f"sensorPi {climate_zone_number}"
@@ -26,8 +26,8 @@ if climate_zone_number == 1:
     bed_num = [1,2]
     
 elif climate_zone_number == 2:
-    chirpsensor_i2c_address = [0x30,0x31,0x32,0x33,0x34]
-    chirp_sensor_cal = [[200, 530],[200, 530],[200, 530],[200, 530],[200, 530]]
-    bed_num = [4,5,6,7,8]
+    chirpsensor_i2c_address = [0x30, 0x31, 0x32, 0x33]
+    chirp_sensor_cal = [[200, 530], [200, 530], [200, 530], [200, 530]]
+    bed_num = [3, 4, 5, 6]
 # i2c chirp sensor addresses, calibration for 0% and 100% moisture, plus bed numbers for each of the climate zones.
 
