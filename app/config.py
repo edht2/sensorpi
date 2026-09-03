@@ -26,8 +26,8 @@ if climate_zone_number == 1:
     bed_num = [1,2]
     
 elif climate_zone_number == 2:
-    chirpsensor_i2c_address = [0x30, 0x31, 0x32, 0x33]
-    chirp_sensor_cal = [[200, 530], [200, 530], [200, 530], [200, 530]]
-    bed_num = [4, 5, 6, 7]
+    chirpsensor_i2c_address = [0x32, 0x31, 0x33, 0x30]
+    chirp_sensor_cal = [[258,546], [259, 556], [263, 548],[271, 555]] # in order of beds, 4, 5, 6, 7, 8. At time of writing, 5 is U/S.
+    bed_num = [4, 6, 7, 8] # 5 is U/S at time of writing, so not included in the list of beds.
 # i2c chirp sensor addresses, calibration for 0% and 100% moisture, plus bed numbers for each of the climate zones.
 

@@ -10,7 +10,7 @@ def len_no_ansi(string) -> int:
 class log:
     def __init__(self, outcome, subject:str, topic:str, message:str, arg:str='', error:object='', abort:bool=True) -> None:
         """ Log object to create standard convension through the project
-            for error handleing and clarification """
+            for error handling and clarification """
             
         if error != '':
             error = f'( {Fore.MAGENTA}{error}{Style.RESET_ALL} )'
@@ -20,7 +20,7 @@ class log:
         p1 = f"{device_name} {Fore.LIGHTMAGENTA_EX}{subject.upper()}.{topic.lower()}{Style.RESET_ALL}"
         p2 = f"{message} {Fore.YELLOW}{arg}{Style.RESET_ALL} {error}"
         
-        indent_size = 45
+        indent_size = 30
         len_p1 = len_no_ansi(p1)
         
         date = Fore.CYAN + datetime.now().strftime('%a %b %d %X ') + Style.RESET_ALL

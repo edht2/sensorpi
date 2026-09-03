@@ -54,7 +54,7 @@ class Bed:
         self.soil_moisture_readings, self.temperature_readings = [], []
         # clear the reading lists
         
-        print(message)
+        #print(message)
         pub.publish(mqttTopic, message)
         # send the packet to the controller pi
         
@@ -62,7 +62,7 @@ class Bed:
             outcome=True,
             subject=f"bed{self.bed_number}",
             topic="publishing", 
-            message="Successfully published bed data"
+            message=f"published...{message}"
         )
 
 

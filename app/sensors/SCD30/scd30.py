@@ -20,33 +20,28 @@ class SCD30:
         # a list of readings
 
     def read(self):
-        try:
-            if self.scd30.get_data_ready():
-                # if the sensorpi can read the sensor data
-                measurements = self.scd30.read_measurement()
-                # get the reading from the sensor
-
-            if measurements is not None:
-                # if the sensor has acctually worked...  sometimes the sensor just returns 'None'
+        retries = 10  # Prevent infinite hanging if the sensor drops out
+        for _ in range(retries):
+            try:
+                if self.scd30.get_data_ready():
+                    measurements = self.scd30.read_measurement()
+                    
+                    if measurements is not None:
+                        self.CO2_readings.append(measurements[0])
+                        self.temperature_readings.append(measurements[1])
+                        self.RH_readings.append(measurements[2])
+                        return measurements
                 
-                self.CO2_readings.append(measurements[0])
-                self.temperature_readings.append(measurements[1])
-                self.RH_readings.append(measurements[2])
-                # add the new results to the lists of readings
-
-                return measurements
-                # returns: CO², Temp and RH% in that order!
-            else:
+                # If data isn't ready or measurements is None, wait a moment and retry
                 time.sleep(0.2)
-
-                return self.read()
-
-        except:
-            # oh no! something went wrong try again
-            time.sleep(0.2)
-            # wait a bit
-
-        return self.read()
+                
+            except Exception as e:
+                # Catch specific I2C/sensor hiccups without crashing
+                # print(f"SCD30 read error: {e}") 
+                time.sleep(0.2)
+        
+        # If it retried 10 times and still got nothing, return None safely
+        return None
 
     def send(self, mqtt_topic):
        
