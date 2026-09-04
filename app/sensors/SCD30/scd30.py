@@ -44,7 +44,11 @@ class SCD30:
         return None
 
     def send(self, mqtt_topic):
-       
+        # Make sure we actually have readings before trying to find a median
+        if not self.CO2_readings or not self.temperature_readings or not self.RH_readings:
+            print(f"Skipping {mqtt_topic} send: No readings collected yet.")
+            return
+
         median_CO2_reading = utils.median(self.CO2_readings)
         median_temperature_reading = utils.median(self.temperature_readings)
         median_RH_reading = utils.median(self.RH_readings)
@@ -66,9 +70,9 @@ class SCD30:
  
         # publish the data--dumps turns a python dictionary into a json string
 
-        def stop(self):
-            self.scd30.stop_periodic_measurements()
-            # if we want to stop the sensor we can
+    def stop(self):
+        self.scd30.stop_periodic_measurement()
+        # if we want to stop the sensor we can
 
     def identify(self):
         return f"This is the climate_zone to which I am linked {self.climate_zone_id}"
